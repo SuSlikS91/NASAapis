@@ -9,17 +9,27 @@ import time
 import yaml
 #Bibliotēka
 from datetime import datetime
+from configparser import ConfigParser
+
 print('Asteroid processing service')
 #Virsraksts
 
+
+
+try:
+                config = ConfigParser()
+                config.read('config.ini')
+
+                nasa_api_key = config.get('nasa', 'api_key')
+                nasa_api_url = config.get('nasa', 'api_url')
+except:
+                logger.exception('')
+print('DONE')
 
 # Initiating and reading config values
 #Lasa konfigurāciju no faila
 print('Loading configuration from file')
 
-# Divi mainīgie no kuriem viens ir NASA atslega un otrs API URL
-nasa_api_key = "3Zx9XNftU3QuvP4kvUSjxhwEgZ9yoIJqfrhhsAb7"
-nasa_api_url = "https://api.nasa.gov/neo/"
 
 # Getting todays date
 # Iegūst šodienas datumu
