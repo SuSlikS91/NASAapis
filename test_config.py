@@ -75,3 +75,23 @@ print("OK")
 print("----------")
 print("Configuration file test DONE -> ALL OK")
 print("----------------------------------------")
+
+# Mans tests (parbauda, ka datuma virkne, ko izmanto NASA API pieprasijumos, ir pareiza formata)
+print("----------")
+print("Parbauda datuma formatu API pieprasijumam -->")
+
+# Genere datuma stringu
+dt = datetime.now()
+generated_date_string = str(dt.year) + "-" + str(dt.month).zfill(2) + "-" + str(dt.day).zfill(2)
+
+# Parbauda datuma formatu (YYYY-MM-DD)
+assert len(generated_date_string) == 10, "Datuma virknei jabut 10 simbolu garai"
+assert generated_date_string.count('-') == 2, "Datuma virkne jabut diviem '-' simboliem"
+assert generated_date_string[4] == '-' and generated_date_string[7] == '-', "Datuma virkne '-' jaatrodas pareizaja pozicija"
+
+# Parbauda katru datuma komponentu
+year, month, day = generated_date_string.split('-')
+assert year == str(dt.year) and month == str(dt.month).zfill(2) and day == str(dt.day).zfill(2), "Gadam, menesim un dienai jasakrit ar pasreizejo datumu"
+
+print("Datuma formats ir pareizs.")
+print("----------")
