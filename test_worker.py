@@ -31,5 +31,8 @@ assert sort_ast_by_pass_dist(list_unsorted_index_short) == []
 print("OK")
 print("----------")
 
+# Mans Tests:
+# Mana testa beigas
+
 print("Asteroid worker test -> ALL OK")
 print("----------------------------------------")
