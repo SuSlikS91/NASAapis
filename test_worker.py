@@ -32,6 +32,23 @@ print("OK")
 print("----------")
 
 # Mans Tests:
+import requests
+
+# Sagatavo NASA API URL un atslegu
+nasa_api_key = '3Zx9XNftU3QuvP4kvUSjxhwEgZ9yoIJqfrhhsAb7'  # Janomaina uz jusu realo API atslegu
+nasa_api_url = 'https://api.nasa.gov/neo/'  # Piemera URL
+
+# Sodienas datums
+today_date = datetime.now().strftime('%Y-%m-%d')
+
+# Veic pieprasijumu
+response = requests.get(f"{nasa_api_url}?start_date={today_date}&end_date={today_date}&api_key={nasa_api_key}")
+
+# Parbauda atbildi
+assert response.status_code == 200, "NASA API pieprasijumam jaatgriez statusa kods 200"
+
+print("NASA API pieprasijuma tests -> ALL OK")
+print("----------")
 # Mana testa beigas
 
 print("Asteroid worker test -> ALL OK")
